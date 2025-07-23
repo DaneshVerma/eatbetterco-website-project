@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./animation/AnimatedSection";
-import heroImage from "../assets/images/home/hero.png"; // ✅ Dynamic import
+import heroImage from "../assets/images/home/hero.png"; //
 
 const HeroSection = () => {
   return (

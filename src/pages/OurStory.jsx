@@ -88,7 +88,7 @@ const OurStoryPage = () => {
             text='c To revive age-old Indian food wisdom and make snacking better.
           Healthier. And more honest. No preservatives. No fads. Just
           beautifully handcrafted, Indian superfood-based snacks.'
-          speed={30}
+            speed={30}
           />
         </motion.p>
       </section>
@@ -102,11 +102,8 @@ const OurStoryPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpVariant}
         >
-        <OurJourneyInteractive />
-      
+          <OurJourneyInteractive />
         </motion.h4>
-
-      
       </section>
 
       {/* Shark Tank Splash Video */}
@@ -119,7 +116,7 @@ const OurStoryPage = () => {
           variants={fadeInUpVariant}
         >
           <img
-            src='src/assets/logo/EB-LOGO-02.svg' // replace with your actual Eat Better Co logo
+            src='/images/logo/EB-LOGO-02.svg' // replace with your actual Eat Better Co logo
             alt='Eat Better Co'
             className='w-1/4 aspect-square mb-6 rounded-full border border-amber-950 object-contain'
           />

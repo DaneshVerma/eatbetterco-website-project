@@ -5,22 +5,22 @@ const journeyItems = [
   {
     title: "Idea Born in the Kitchen – 2020",
     desc: "idea was sparked in a home kitchen with a mission to reinvent Indian snacking.",
-    img: "src/assets/images/story/1.webp  ",
+    img: "images/story/1.webp  ",
   },
   {
     title: "First Laddu Batch Delivered – 2021",
     desc: "With homemade ingredients, our first batch of laddus reached close friends and family.",
-    img: "src/assets/images/story/2.png",
+    img: "images/story/2.png",
   },
   {
     title: "Featured on Shark Tank – 2023",
     desc: "In 2023, Eat Better Co got featured on Shark Tank India and received nationwide love.",
-    img: "src/assets/images/story/3.png",
+    img: "images/story/3.png",
   },
   {
     title: "Pan-India Reach via D2C – 2024",
     desc: "our products had reached every corner of India through direct-to-consumer channels.",
-    img: "src/assets/images/story/4.png",
+    img: "images/story/4.png",
   },
 ];
 
@@ -73,10 +73,7 @@ const OurJourneyInteractive = () => {
         <div className='flex-1 '>
           <div className='w-full h-full overflow-hidden bg-amber-600 rounded-lg shadow'>
             <img
-              src={
-                journeyItems[activeIndex]?.img ||
-                "src/assets/images/story/main.jpg"
-              }
+              src={journeyItems[activeIndex]?.img || "images/story/main.jpg"}
               alt='Journey Image'
               className='w-full md:h-full h-60  object-cover transition-all duration-500'
             />

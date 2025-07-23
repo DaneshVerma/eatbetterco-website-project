@@ -14,7 +14,7 @@ const ProductsPage = () => {
 
   const categories = [
     "All",
-    "Combo Packs",
+    "Combo",
     "Laddos",
     "Namkeen",
     "Dry Fruit Snacks",
@@ -109,7 +109,7 @@ const ProductsPage = () => {
       {/* Product Cards */}
       <AnimatedStaggerList
         items={paginatedProducts}
-        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'
+        className='flex md:flex-row flex-col gap-6 justify-center md:justify-start'
         renderItem={(product) => <ProductCard key={product.id} {...product} />}
       />
 
