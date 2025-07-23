@@ -64,7 +64,11 @@ const Navbar = () => {
             { label: "Our Story", to: "/ourstory" },
             { label: "Products", to: "/products" },
           ].map((link) => (
-            <Link key={link.to} to={link.to} className='relative font-semibold group'>
+            <Link
+              key={link.to}
+              to={link.to}
+              className='relative font-semibold group'
+            >
               {link.label}
               <span className='block h-[2px] w-0 bg-amber-400 transition-all group-hover:w-full'></span>
             </Link>
@@ -86,10 +90,14 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <Link to='/login' className='hover:underline font-semibold'>
+            <Link
+              to='/login'
+              onClick={closeMenu}
+              className='relative font-semibold group'
+            >
               Login
+              <span className='block h-[2px] w-0 bg-[#7a9e49] transition-all group-hover:w-full'></span>
             </Link>
-            
           )}
         </div>
 

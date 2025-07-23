@@ -1,65 +1,83 @@
 // pages/AuthPage.jsx
-import { useState } from "react";
-import { login } from "../utils/auth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { login, signup } from "../utils/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState(""); // only used in signup
+  const [isSignup, setIsSignup] = useState(false);
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    login(email); // save to localStorage
-    navigate("/"); // redirect to home
+
+  const handleAuth = () => {
+    if (!email.trim()) {
+      toast.error("Email is required");
+      return;
+    }
+
+    if (isSignup) {
+      if (!name.trim()) {
+        toast.error("Name is required for signup");
+        return;
+      }
+
+      const success = signup({ email, name });
+      if (success) {
+        toast.success("Signup successful!");
+        navigate("/");
+      } else {
+        toast.error("User already exists. Try logging in.");
+      }
+    } else {
+      const success = login({ email });
+      if (success) {
+        toast.success("Login successful!");
+        navigate("/");
+      } else {
+        toast.error("No account found. Please sign up first.");
+      }
+    }
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center px-4 bg-[#fff9f0]'>
-      <div className='bg-white rounded-lg shadow-md p-8 w-full max-w-md'>
-        <h2 className='text-2xl font-serif text-center mb-6'>
-          {isLogin ? "Welcome Back" : "Join the Eat Better Club"}
-        </h2>
+    <div className="max-w-md mx-auto p-6 mt-20 bg-white shadow rounded">
+      <h2 className="text-xl font-bold mb-4 text-center">
+        {isSignup ? "Sign Up" : "Login"}
+      </h2>
+      {isSignup && (
+        <input
+          type="text"
+          placeholder="Enter your name"
+          className="w-full p-2 mb-3 border rounded"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      )}
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="w-full p-2 mb-3 border rounded"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button
+        className="w-full bg-green-600 cursor-pointer text-white py-2 rounded hover:bg-green-700 transition"
+        onClick={handleAuth}
+      >
+        {isSignup ? "Sign Up" : "Login"}
+      </button>
 
-        <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-          {!isLogin && (
-            <input
-              type='text'
-              name='name'
-              placeholder='Your Name'
-              className='px-4 py-2 border rounded focus:outline-none'
-            />
-          )}
-          <input
-            type='email'
-            name='email'
-            placeholder='Email'
-            className='px-4 py-2 border rounded focus:outline-none'
-          />
-          <input
-            type='password'
-            placeholder='Password'
-            className='px-4 py-2 border rounded focus:outline-none'
-          />
-          <button
-            type='submit'
-            className='bg-[#2f4f2f] text-white py-2 rounded hover:bg-[#263e26] transition'
-          >
-            {isLogin ? "Login" : "Create Account"}
-          </button>
-        </form>
-
-        <div className='text-center mt-4'>
-          <p className='text-sm text-gray-600'>
-            {isLogin ? "Don't have an account?" : "Already have an account?"}
-            <button
-              className='text-green-800 font-medium ml-1 hover:underline'
-              onClick={() => setIsLogin(!isLogin)}
-            >
-              {isLogin ? "Sign up" : "Login"}
-            </button>
-          </p>
-        </div>
-      </div>
+      <p className="text-sm mt-4 text-center">
+        {isSignup ? "Already have an account?" : "Don’t have an account?"}{" "}
+        <button
+          onClick={() => setIsSignup(!isSignup)}
+          className="text-green-600 hover:underline"
+        >
+          {isSignup ? "Login" : "Sign Up"}
+        </button>
+      </p>
     </div>
   );
 };

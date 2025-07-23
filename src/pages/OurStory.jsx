@@ -1,6 +1,5 @@
 // pages/OurStoryPage.jsx
 import { motion } from "framer-motion";
-import AnimatedStaggerList from "../components/animation/AnimatedStaggerList";
 import TypingText from "../components/Feature-Utility/TypingText";
 import OurJourneyInteractive from "../components/stroyComponents/OurJourneyInteractive";
 

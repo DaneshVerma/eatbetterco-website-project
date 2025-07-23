@@ -1,35 +1,22 @@
 // pages/ProductDetailPage.jsx
 import { useParams } from "react-router-dom";
+import { productsData } from "../data/products";
 import { isLoggedIn } from "../utils/auth";
 import AnimatedSection from "../components/animation/AnimatedSection";
 import ProductIngredients from "../components/productDetailComponents/ProductIngredients";
 import ProductImageBox from "../components/productDetailComponents/ProductImageBox";
 import ProductHeader from "../components/productDetailComponents/ProductHeader";
 
-const productData = {
-  1: {
-    name: "Gond Laddu",
-    image: "#",
-    description: "A heritage snack, rooted in Indian tradition.",
-    ingredients: ["Ghee", "Almonds", "Dates"],
-  },
-  2: {
-    name: "Moong Dal Laddu",
-    image: "#",
-    description: "Power-packed with protein & love.",
-    ingredients: ["Moong", "Honey", "Ghee"],
-  },
-};
 
 const ProductDetailPage = () => {
   const { id } = useParams();
-  const product = productData[id];
+  const product = productsData.find((p) => p.id === parseInt(id));
 
   const handleBuy = () => {
     if (!isLoggedIn()) {
-      alert("Please login to continue");
+      toast.info("Please login to continue");
     } else {
-      alert("Thanks for your order! We’ll send you some laddus 🎉");
+      toast.success("Thanks for your order! We’ll send you some laddus 🎉");
     }
   };
 
@@ -40,10 +27,9 @@ const ProductDetailPage = () => {
   return (
     <AnimatedSection>
       <div className='px-6 py-12 pt-20 bg-[#fff9f0] max-w-4xl mx-auto'>
-        <ProductImageBox image={product.image} />
+        <ProductImageBox image={product.imgUrl} />
         <ProductHeader name={product.name} description={product.description} />
         <ProductIngredients ingredients={product.ingredients} />
-
         <AnimatedSection delay={0.5}>
           <div className='flex flex-col sm:flex-row justify-center items-center gap-4 mt-2'>
             <button

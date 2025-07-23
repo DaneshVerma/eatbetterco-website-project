@@ -33,6 +33,7 @@ const HeroSection = () => {
           <img
             src={heroImage}
             alt='laddu'
+            loading="lazy"
             className='rounded-lg w-full h-full drop-shadow-amber-200 drop-shadow-2xl  mx-auto'
           />
         </AnimatedSection>
