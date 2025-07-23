@@ -30,6 +30,7 @@ const HeroSection = () => {
 
         {/* Image Side */}
         <AnimatedSection delay={0.2} className='flex-1'>
+          
           <img
             src={heroImage}
             alt='laddu'

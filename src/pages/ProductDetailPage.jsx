@@ -6,17 +6,21 @@ import AnimatedSection from "../components/animation/AnimatedSection";
 import ProductIngredients from "../components/productDetailComponents/ProductIngredients";
 import ProductImageBox from "../components/productDetailComponents/ProductImageBox";
 import ProductHeader from "../components/productDetailComponents/ProductHeader";
-
+import { toast } from "react-toastify";
+import { useCart } from "../context/CartContext";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const product = productsData.find((p) => p.id === parseInt(id));
 
+  const { addToCart } = useCart();
+
   const handleBuy = () => {
     if (!isLoggedIn()) {
-      toast.info("Please login to continue");
+      toast.error("Please login to continue");
     } else {
-      toast.success("Thanks for your order! We’ll send you some laddus 🎉");
+      addToCart({ id, name: product.name, price: 299, quantity: 1 });
+      toast.success(`${product.name} added to cart!`);
     }
   };
 

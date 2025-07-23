@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Marquee from "./components/Feature-Utility/Marquee";
 import ScrollToTop from "./components/Feature-Utility/ScrollTop";
 import { ToastContainer } from "react-toastify";
+import CartPage from "./pages/CartPage";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
         <Route path='login' element={<AuthPage />} />
+        <Route path='/cart' element={<CartPage />} />
       </Routes>
       <Marquee />
       <Footer />

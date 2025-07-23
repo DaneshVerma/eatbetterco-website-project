@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
-  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
@@ -32,9 +35,17 @@ const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
       >
         Shop Now
       </button>
+      <button
+        onClick={() => {
+          addToCart({ id, name, price, quantity: 1, img1: imgUrl });
+          toast.success(`${name} added to cart!`);
+        }}
+        className='bg-[#d6e2c5] text-[#2f2f2f] px-4 py-2 rounded hover:bg-[#c6d2b3] transition'
+      >
+        Add to Cart
+      </button>
     </motion.div>
   );
 };
-
 
 export default ProductCard;

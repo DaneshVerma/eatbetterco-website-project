@@ -4,6 +4,8 @@ import { isLoggedIn, logout, getUser } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "../context/CartContext";
+import { RiShoppingCartLine } from "@remixicon/react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,6 +14,11 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+  const { cartItems } = useCart();
+
+  const cartCount = Array.isArray(cartItems)
+    ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
+    : 0;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +53,7 @@ const Navbar = () => {
     >
       <div className='max-w-7xl mx-auto flex items-center justify-between px-6 py-4'>
         {/* Logo */}
-        <Link
-          to='/'
+        <span
           className='text-2xl md:text-3xl font-serif font-bold text-[#2f2f2f]'
         >
           <img
@@ -55,7 +61,7 @@ const Navbar = () => {
             src='https://eatbetterco.com/cdn/shop/files/EB-LOGO-02.svg?v=1740123835&width=160'
             alt=''
           />
-        </Link>
+        </span>
 
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-8 items-center text-sm'>
@@ -73,6 +79,14 @@ const Navbar = () => {
               <span className='block h-[2px] w-0 bg-amber-400 transition-all group-hover:w-full'></span>
             </Link>
           ))}
+          <Link to='/cart' className='relative'>
+            <RiShoppingCartLine className='w-5 h-5' />
+            {cartCount > 0 && (
+              <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full'>
+                {cartCount}
+              </span>
+            )}
+          </Link>
 
           {isLoggedIn() ? (
             <>
@@ -163,6 +177,15 @@ const Navbar = () => {
                 >
                   Products
                 </Link>
+                <Link to='/cart' className='relative'>
+                  <RiShoppingCartLine className='w-5 h-5' />
+                  {cartCount > 0 && (
+                    <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full'>
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
+
                 {isLoggedIn() ? (
                   <button
                     onClick={() => {
