@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import AnimatedStaggerList from "../components/animation/AnimatedStaggerList";
 import TypingText from "../components/Feature-Utility/TypingText";
+import OurJourneyInteractive from "../components/stroyComponents/OurJourneyInteractive";
 
 const fadeInUpVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -21,7 +22,7 @@ const OurStoryPage = () => {
       initial='hidden'
       animate='visible'
       variants={fadeInUpVariant}
-      className='pt-20 px-12 pb-16 bg-[#fff9f0] min-h-screen'
+      className='pt-20 px-6 md:px-12 pb-16 bg-[#fff9f0] min-h-screen'
     >
       {/* Founder Section */}
       <section className='grid md:grid-cols-2 gap-8 items-center mb-20'>
@@ -67,7 +68,7 @@ const OurStoryPage = () => {
       </section>
 
       {/* Mission Section */}
-      <section className='mb-20 text-center'>
+      <section className='mb-20 h-40 text-center'>
         <motion.h3
           className='text-xl md:text-4xl font-serif mb-3'
           initial='hidden'
@@ -88,6 +89,7 @@ const OurStoryPage = () => {
             text='c To revive age-old Indian food wisdom and make snacking better.
           Healthier. And more honest. No preservatives. No fads. Just
           beautifully handcrafted, Indian superfood-based snacks.'
+          speed={30}
           />
         </motion.p>
       </section>
@@ -101,46 +103,32 @@ const OurStoryPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpVariant}
         >
-          Our Journey
+        <OurJourneyInteractive />
+      
         </motion.h4>
 
-        <AnimatedStaggerList
-          items={[
-            "Idea Born in the Kitchen – 2020",
-            "First Laddu Batch Delivered – 2021",
-            "Featured on Shark Tank – 2023",
-            "Pan-India Reach via D2C – 2024",
-          ]}
-          renderItem={(item) => (
-            <motion.div
-              whileHover={{ scale: 1.04 }}
-              className='relative overflow-hidden md:w-4/5 mb-4 px-5 py-4 rounded-lg border border-[#ddd] bg-white group transition duration-300'
-              variants={fadeInUpVariant}
-              initial='hidden'
-              whileInView='visible'
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div className='absolute inset-0 bg-amber-200 w-0 group-hover:w-full transition-all duration-400 ease-in-out origin-left z-0' />
-              <p className='relative z-10 text-xl cursor-pointer text-left font-medium text-[#2f2f2f]'>
-                {item}
-              </p>
-            </motion.div>
-          )}
-          className='space-y-3'
-        />
+      
       </section>
 
       {/* Shark Tank Splash Video */}
       <section className='text-center'>
-        <motion.h2
-          className='text-2xl md:text-3xl font-semibold text-[#4a3d30] mb-6'
+        <motion.div
+          className='flex flex-col items-center mb-6'
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpVariant}
         >
-          Our Shark Tank Moment
-        </motion.h2>
+          <img
+            src='src/assets/logo/EB-LOGO-02.svg' // replace with your actual Eat Better Co logo
+            alt='Eat Better Co'
+            className='w-1/4 aspect-square mb-6 rounded-full border border-amber-950 object-contain'
+          />
+          <h2 className='text-2xl md:text-3xl font-semibold text-[#4a3d30]'>
+            As seen on Shark Tank India 🦈
+          </h2>
+        </motion.div>
+
         <motion.div
           className='rounded-lg overflow-hidden max-w-4xl mx-auto aspect-video bg-gray-300 shadow-md'
           initial='hidden'

@@ -31,7 +31,7 @@ const CuratedProducts = () => {
               key={index}
               className={`w-full sm:w-[48%] lg:w-[30%] bg-white rounded-lg shadow-md p-4 transition-all hover:scale-105 duration-400`}
             >
-              <div className='aspect-square w-full mb-4 overflow-hidden rounded'>
+              <div className='aspect-square w-full h-60 mb-4 overflow-hidden rounded'>
                 <img
                   className='w-full h-full transition-all duration-200 hover:scale-105 object-cover'
                   src={product.imgUrl}

@@ -1,6 +1,11 @@
 // components/Footer.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  RiInstagramLine,
+  RiFacebookCircleLine,
+  RiWhatsappLine
+} from "@remixicon/react";
 
 const Footer = () => {
   return (
@@ -36,14 +41,36 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Branding + Social (Placeholder) */}
+        {/* Branding + Social Links */}
         <div className="text-center md:text-right">
           <h4 className="text-lg font-serif mb-3">EAT BETTER<span className="text-[#7a9e49]">.co</span></h4>
           <p className="text-sm text-gray-600 mb-2">Handcrafted Indian snacks with a modern twist.</p>
-          <div className="flex justify-center md:justify-end gap-4 mt-2">
-            <span className="w-5 h-5 bg-[#7a9e49] rounded-full" /> {/* placeholder social icons */}
-            <span className="w-5 h-5 bg-[#7a9e49] rounded-full" />
-            <span className="w-5 h-5 bg-[#7a9e49] rounded-full" />
+
+          <div className="flex justify-center md:justify-end gap-4 mt-3">
+            <a
+              href="https://www.instagram.com/theeatbetterco/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#7a9e49] text-white rounded-full p-2 hover:bg-[#6b8f3b] transition"
+            >
+              <RiInstagramLine className="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.facebook.com/theeatbetterco"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#7a9e49] text-white rounded-full p-2 hover:bg-[#6b8f3b] transition"
+            >
+              <RiFacebookCircleLine className="w-5 h-5" />
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=9352178141"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#7a9e49] text-white rounded-full p-2 hover:bg-[#6b8f3b] transition"
+            >
+              <RiWhatsappLine className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
