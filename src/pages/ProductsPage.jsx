@@ -10,7 +10,7 @@ const ProductsPage = () => {
   const [sort, setSort] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
 
   const categories = [
     "All",
@@ -58,7 +58,8 @@ const ProductsPage = () => {
     <div className='bg-[#fff9f0] min-h-screen pt-20 px-6 py-12'>
       <AnimatedSection>
         <h1 className='text-3xl md:text-4xl font-serif mb-2 text-center'>
-          Our Creations      </h1>
+          Our Creations{" "}
+        </h1>
       </AnimatedSection>
 
       <AnimatedStaggerList
@@ -72,36 +73,42 @@ const ProductsPage = () => {
       />
 
       {/* Search, Sort, Filter */}
-      <div className='flex flex-wrap justify-center md:justify-between items-center gap-4 mb-6'>
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          className='border-b outline-0 px-4 py-2 rounded-md shadow-sm text-sm bg-white'
-        >
-          <option value=''>Sort By</option>
-          <option value='low-to-high'>Price: Low to High</option>
-          <option value='high-to-low'>Price: High to Low</option>
-          <option value='a-z'>A-Z</option>
-          <option value='z-a'>Z-A</option>
-        </select>{" "}
+      <div className='flex flex-col-reverse md:flex-row justify-between items-center gap-4 mb-8'>
+        {/* Sort & Filter */}
+        <div className='flex gap-3 flex-wrap'>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            className='bg-[#f7fbe7] border border-[#cfe1b9] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
+          >
+            <option value=''>Sort By</option>
+            <option value='low-to-high'>Price: Low to High</option>
+            <option value='high-to-low'>Price: High to Low</option>
+            <option value='a-z'>A-Z</option>
+            <option value='z-a'>Z-A</option>
+          </select>
+
+          <select
+            value={filterCategory}
+            onChange={(e) => setFilterCategory(e.target.value)}
+            className='bg-[#f7fbe7] border border-[#cfe1b9] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
+          >
+            {categories.map((cat, i) => (
+              <option key={i} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Search */}
         <input
           type='text'
-          placeholder='Search...'
+          placeholder='Search products...'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className=' px-4 py-2 border-b outline-0 rounded-md shadow-sm w-full sm:w-auto md:w-1/3'
+          className='w-full md:w-1/3 px-4 py-2 rounded-md border border-[#cfe1b9] bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
         />
-        <select
-          value={filterCategory}
-          onChange={(e) => setFilterCategory(e.target.value)}
-          className='border px-4 py-2 rounded-md shadow-sm text-sm bg-white'
-        >
-          {categories.map((cat, i) => (
-            <option key={i} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
       </div>
 
       {/* Product Cards */}
@@ -112,7 +119,7 @@ const ProductsPage = () => {
       />
 
       {/* Pagination */}
-      <div className='flex justify-center md:justify-end mt-10 gap-2 flex-wrap'>
+      <div className='flex justify-center mt-10 gap-2 flex-wrap'>
         {[...Array(totalPages)].map((_, idx) => (
           <button
             key={idx}

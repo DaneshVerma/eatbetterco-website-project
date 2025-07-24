@@ -10,8 +10,10 @@ import Marquee from "./components/Feature-Utility/Marquee";
 import ScrollToTop from "./components/Feature-Utility/ScrollTop";
 import { ToastContainer } from "react-toastify";
 import CartPage from "./pages/CartPage";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
+
   return (
     <div className='font-sans select-none  text-[#2f2f2f]'>
       <ToastContainer

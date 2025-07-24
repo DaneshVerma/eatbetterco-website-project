@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import TypingText from "../components/Feature-Utility/TypingText";
 import OurJourneyInteractive from "../components/stroyComponents/OurJourneyInteractive";
-
+import AnimatedSection from "../components/animation/AnimatedSection";
+import { useLocation } from "react-router-dom";
 const fadeInUpVariant = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -16,11 +17,10 @@ const fadeInUpVariant = {
 };
 
 const OurStoryPage = () => {
+  let location = useLocation();
   return (
-    <motion.div
-      initial='hidden'
-      animate='visible'
-      variants={fadeInUpVariant}
+    <AnimatedSection
+      key={location.pathname}
       className='pt-20 px-6 md:px-12 pb-16 bg-[#fff9f0] min-h-screen'
     >
       {/* Founder Section */}
@@ -140,7 +140,7 @@ const OurStoryPage = () => {
           ></video>
         </motion.div>
       </section>
-    </motion.div>
+    </AnimatedSection>
   );
 };
 

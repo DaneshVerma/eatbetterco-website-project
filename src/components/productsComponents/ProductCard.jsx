@@ -10,18 +10,18 @@ const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
   const navigate = useNavigate();
   return (
     <motion.div
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.3 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className='bg-white rounded-lg shadow-md p-4 flex flex-col justify-center md:w-[300px] min-h-[460px]'
     >
       <div
-        className='aspect-square w-full mb-2 overflow-hidden rounded cursor-pointer'
+        className=' w-full mb-2 overflow-hidden rounded cursor-pointer'
         onClick={() => navigate(`/product/${id}`)}
       >
         <img
-          className='w-full h-full object-cover transition duration-300'
+          className='w-full object-cover transition duration-300'
           src={hovered ? hoverImgUrl : imgUrl}
           alt={name}
         />
