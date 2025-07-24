@@ -27,7 +27,7 @@ const App = () => {
         draggable
         pauseOnHover
         theme='light'
-      />
+      />  
       <Navbar />
       <ScrollToTop />
       <Routes>
