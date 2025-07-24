@@ -74,7 +74,6 @@ const ProductsPage = () => {
 
       {/* Search, Sort, Filter */}
       <div className='flex flex-col-reverse md:flex-row justify-between items-center gap-4 mb-8'>
-        {/* Sort & Filter */}
         <div className='flex gap-3 flex-wrap'>
           <select
             value={sort}

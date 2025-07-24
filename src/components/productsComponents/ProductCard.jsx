@@ -26,7 +26,7 @@ const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
           alt={name}
         />
       </div>
-      <h4 className='text-lg font-semibold mb-1'>{name}</h4>
+      <h4 className='text-md font-semibold mb-1'>{name}</h4>
       <p className='text-sm text-gray-700 mb-1 h-[40px] overflow-hidden leading-snug'>
         {desc}
       </p>
@@ -34,7 +34,7 @@ const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
       <div className='mt-auto flex flex-col gap-2'>
         <button
           onClick={() => navigate(`/product/${id}`)}
-          className='bg-[#d6e2c5] text-[#2f2f2f] px-4 py-2 rounded hover:bg-[#c6d2b3] transition'
+          className='bg-[#d6e2c5] text-[#2f2f2f] px-4 py-2 cursor-pointer rounded hover:bg-[#c6d2b3] transition'
         >
           Shop Now
         </button>
@@ -43,7 +43,7 @@ const ProductCard = ({ id, name, desc, price, imgUrl, hoverImgUrl }) => {
             addToCart({ id, name, price, quantity: 1, img1: imgUrl });
             toast.success(`${name} added to cart!`);
           }}
-          className='bg-[#7a9e49] text-white px-4 py-2 rounded hover:bg-[#6c8f3a] transition'
+          className='bg-[#7a9e49] text-white px-4 py-2 rounded cursor-pointer hover:bg-[#6c8f3a] transition'
         >
           Add to Cart
         </button>

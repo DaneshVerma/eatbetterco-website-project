@@ -53,13 +53,13 @@ const Navbar = () => {
     >
       <div className='max-w-7xl mx-auto flex items-center justify-between px-6 py-4'>
         {/* Logo */}
-        <span className='text-2xl md:text-3xl font-serif font-bold text-[#2f2f2f]'>
+        <Link to={"/"} className='text-2xl md:text-3xl font-serif font-bold text-[#2f2f2f]'>
           <img
             className='w-1/4 scale-115 object-cover h-full'
             src='https://eatbetterco.com/cdn/shop/files/EB-LOGO-02.svg?v=1740123835&width=160'
             alt=''
           />
-        </span>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className='hidden md:flex gap-8 items-center text-sm'>
@@ -96,7 +96,7 @@ const Navbar = () => {
                   logout();
                   navigate("/");
                 }}
-                className='text-red-600 hover:underline'
+                className='text-red-600 cursor-pointer font-bold hover:underline'
               >
                 Logout
               </button>
@@ -187,7 +187,7 @@ const Navbar = () => {
                       navigate("/");
                       closeMenu();
                     }}
-                    className='text-left text-red-600 border-b border-[#dabf82]/40 pb-2'
+                    className='cursor-pointer font-bold text-red-600 border-b border-[#dabf82]/40 pb-2'
                   >
                     Logout
                   </button>
