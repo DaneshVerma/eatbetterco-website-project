@@ -2,17 +2,17 @@ const features = [
   {
     title: "No Preservatives",
     description: "Wholesome goodness without the nasties",
-    imgUrl: "icons/laboratory.gif",
+    imgUrl: "src/assets/icons/laboratory.gif",
   },
   {
     title: "Ayurvedic Recipes",
     description: "Nourishing ingredients, rooted in Ayurveda",
-    imgUrl: "icons/mortar.gif",
+    imgUrl: "src/assets/icons/mortar.gif",
   },
   {
     title: "Made Locally",
     description: "Crafted in small batches across India",
-    imgUrl: "icons/india.gif",
+    imgUrl: "src/assets/icons/india.gif",
   },
 ];
 

@@ -5,7 +5,7 @@ const ProductIngredients = ({ ingredients }) => {
     <AnimatedSection delay={0.4}>
       <div className="text-center mb-4">
         <h3 className="text-xl md:text-left font-serif mb-2">Contains</h3>
-        <div className="flex flex-col  md:w-1/2 justify-center gap-3">
+        <div className="flex flex-wrap  md:w-1/2 justify-left gap-3">
           {ingredients.map((item, i) => (
             <span
               key={i}

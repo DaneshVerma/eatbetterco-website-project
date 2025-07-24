@@ -1,11 +1,16 @@
 import AnimatedSection from "../animation/AnimatedSection";
 
-
 const ProductImageBox = ({ image }) => {
   return (
     <AnimatedSection delay={0.1}>
-      <div className="h-40 bg-[#f4f4f4] mb-4 rounded"></div>
-      {/* Replace bg div with <img src={image} /> when image is ready */}
+      <div className="aspect-square overflow-hidden rounded-lg shadow-md max-w-[450px] mx-auto">
+        <img
+          src={image}
+          alt="product"
+          className="w-full h-full object-cover"
+          onError={(e) => (e.target.src = "/fallback.jpg")}
+        />
+      </div>
     </AnimatedSection>
   );
 };

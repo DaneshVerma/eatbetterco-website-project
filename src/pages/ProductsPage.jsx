@@ -57,15 +57,13 @@ const ProductsPage = () => {
   return (
     <div className='bg-[#fff9f0] min-h-screen pt-20 px-6 py-12'>
       <AnimatedSection>
-        <h1 className='text-3xl md:text-5xl font-serif mb-2 text-center'>
-          PRODUCTS
-        </h1>
-        <p className='text-lg text-center mb-6'>Our Creations</p>
+        <h1 className='text-3xl md:text-4xl font-serif mb-2 text-center'>
+          Our Creations      </h1>
       </AnimatedSection>
 
       <AnimatedStaggerList
         items={highLights}
-        className='flex flex-wrap justify-center gap-3 mb-6'
+        className='flex flex-wrap justify-center gap-3 mb-4'
         renderItem={(cat) => (
           <span className='bg-[#efefef] text-sm px-4 py-2 rounded-full cursor-pointer hover:bg-[#e2e2e2] transition'>
             {cat}
@@ -109,7 +107,7 @@ const ProductsPage = () => {
       {/* Product Cards */}
       <AnimatedStaggerList
         items={paginatedProducts}
-        className='flex md:flex-row flex-col gap-6 justify-center md:justify-start'
+        className='flex md:flex-row md:flex-wrap flex-col gap-6 justify-center md:justify-start'
         renderItem={(product) => <ProductCard key={product.id} {...product} />}
       />
 

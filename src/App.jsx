@@ -17,7 +17,7 @@ const App = () => {
       <ToastContainer
         position='top-center'
         autoClose={1000}
-        hideProgressBar={true}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}

@@ -6,6 +6,7 @@ import AnimatedSection from "../components/animation/AnimatedSection";
 import ProductIngredients from "../components/productDetailComponents/ProductIngredients";
 import { toast } from "react-toastify";
 import { useCart } from "../context/CartContext";
+import ProductImageBox from "../components/productDetailComponents/ProductImageBox";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -47,12 +48,7 @@ const ProductDetailPage = () => {
         <div className='flex flex-col md:flex-row gap-10 items-start'>
           {/* Image */}
           <div className='aspect-square overflow-hidden rounded-lg shadow-md'>
-            <img
-              src={product.imgUrl || "/fallback.jpg"}
-              alt={product.name}
-              className='w-full min-h-[300px] object-cover rounded-lg'
-              onError={(e) => (e.target.src = "/fallback.jpg")}
-            />
+            <ProductImageBox image={product.imgUrl} />
           </div>
 
           {/* Info */}
@@ -66,15 +62,15 @@ const ProductDetailPage = () => {
               <span className='font-semibold'>Category:</span>{" "}
               {product.category}
             </p>
-            <p className='text-xl font-bold text-[#2f2f2f] mb-4'>
+            <ProductIngredients ingredients={product.ingredients} />
+            <p className='text-gray-600 mb-2'>{product.description}</p>
+            <p className='mt-4 text-xl font-bold text-[#2f2f2f] mb-4'>
               ₹{product.price}
             </p>
 
-            <ProductIngredients ingredients={product.ingredients} />
-
             <button
               onClick={handleBuy}
-              className='mt-6 bg-[#2f4f2f] text-white px-6 py-3 rounded hover:bg-[#263e26] transition w-full sm:w-auto'
+              className='mt-2 bg-[#2f4f2f] text-white px-6 py-3 rounded hover:bg-[#263e26] transition w-full sm:w-auto'
             >
               Try This Now
             </button>

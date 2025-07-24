@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
-import { RiShoppingCartLine } from "@remixicon/react";
+import { RiShoppingCartLine, RiMenu3Line } from "@remixicon/react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -118,7 +118,7 @@ const Navbar = () => {
           onClick={() => setMenuOpen(true)}
           className='md:hidden bg-[#d6e2c5] p-2 rounded-lg focus:outline-none shadow'
         >
-          <img src='icons/menu-3-line.svg' alt='Menu' className='w-5 h-5' />
+          <RiMenu3Line className='w-6 h-6 text-[#2f2f2f]' />
         </button>
       </div>
 
