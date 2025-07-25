@@ -57,8 +57,8 @@ const ProductsPage = () => {
   return (
     <div className='bg-[#fff9f0] min-h-screen pt-20 px-6 py-12'>
       <AnimatedSection>
-        <h1 className='text-3xl md:text-4xl font-serif mb-2 text-center'>
-          Our Creations{" "}
+        <h1 className='text-3xl md:text-4xl font-["Geist"] mb-2 text-center'>
+          Our Creations
         </h1>
       </AnimatedSection>
 
@@ -66,7 +66,7 @@ const ProductsPage = () => {
         items={highLights}
         className='flex flex-wrap justify-center gap-3 mb-4'
         renderItem={(cat) => (
-          <span className='bg-[#efefef] text-sm px-4 py-2 rounded-full cursor-pointer hover:bg-[#e2e2e2] transition'>
+          <span className='bg-[#efefef] font-["Geist mono"]  text-sm px-4 py-2 rounded-full cursor-pointer hover:bg-[#e2e2e2] transition'>
             {cat}
           </span>
         )}
@@ -78,7 +78,7 @@ const ProductsPage = () => {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className='bg-[#f7fbe7] border border-[#cfe1b9] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
+            className='bg-[#f7fbe7] font-["Geist mono"]  border border-[#cfe1b9] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
           >
             <option value=''>Sort By</option>
             <option value='low-to-high'>Price: Low to High</option>
@@ -90,7 +90,7 @@ const ProductsPage = () => {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className='bg-[#f7fbe7] border border-[#cfe1b9] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
+            className='bg-[#f7fbe7] border border-[#cfe1b9] font-["Geist mono"] text-sm px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
           >
             {categories.map((cat, i) => (
               <option key={i} value={cat}>
@@ -106,7 +106,7 @@ const ProductsPage = () => {
           placeholder='Search products...'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className='w-full md:w-1/3 px-4 py-2 rounded-md border border-[#cfe1b9] bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
+          className='w-full md:w-1/3 px-4 py-2 font-["Geist mono"] rounded-md border border-[#cfe1b9] bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a1cc7f] transition'
         />
       </div>
 

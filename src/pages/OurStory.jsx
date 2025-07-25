@@ -46,10 +46,10 @@ const OurStoryPage = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpVariant}
         >
-          <h3 className='text-4xl font-serif mb-4 text-[#2f2f2f]'>
+          <h3 className='text-4xl font-["Geist"]  mb-4 text-[#2f2f2f]'>
             Meet Mridula Kanoria
           </h3>
-          <p className='text-sm leading-relaxed text-gray-700'>
+          <p className='text-sm leading-relaxed font-["Geist mono"] text-gray-700'>
             In a world where we’re always on the move, snacks were always in
             demand in my family. But I found most of them unhealthy or bland.
             Over the past 20 years, I experimented with healthy, homemade
@@ -69,7 +69,7 @@ const OurStoryPage = () => {
       {/* Mission Section */}
       <section className='mb-20 h-40 text-center'>
         <motion.h3
-          className='text-xl md:text-4xl font-serif mb-3'
+          className='text-xl md:text-4xl font-["Geist"] mb-3'
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
@@ -78,14 +78,14 @@ const OurStoryPage = () => {
           Our Mission
         </motion.h3>
         <motion.p
-          className='max-w-2xl mx-auto text-lg text-gray-700'
+          className='max-w-2xl mx-auto font-["Geist mono"] text-lg text-gray-700'
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpVariant}
         >
           <TypingText
-            text='c To revive age-old Indian food wisdom and make snacking better.
+            text=' To revive age-old Indian food wisdom and make snacking better.
           Healthier. And more honest. No preservatives. No fads. Just
           beautifully handcrafted, Indian superfood-based snacks.'
             speed={30}
@@ -120,7 +120,7 @@ const OurStoryPage = () => {
             alt='Eat Better Co'
             className='w-1/4 aspect-square mb-6 rounded-full border border-amber-950 object-contain'
           />
-          <h2 className='text-2xl md:text-3xl font-semibold text-[#4a3d30]'>
+          <h2 className='text-2xl md:text-3xl font-["Geist"] font-semibold text-[#4a3d30]'>
             As seen on Shark Tank India 🦈
           </h2>
         </motion.div>

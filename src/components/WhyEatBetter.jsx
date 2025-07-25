@@ -19,7 +19,7 @@ const features = [
 const WhyEatBetter = () => {
   return (
     <section className='px-12 py-30 bg-amber-200 relative z-10'>
-      <h3 className='text-4xl font-serif mb-10 text-center'>Why Eat Better?</h3>
+      <h3 className='text-4xl mb-10 font-["Geist"] text-center'>Why Eat Better?</h3>
 
       <div className='flex flex-col md:flex-row justify-center gap-8'>
         {features.map((item, index) => (
@@ -34,8 +34,8 @@ const WhyEatBetter = () => {
                 className='w-16 h-16 object-contain'
               />
             </div>
-            <h4 className='text-2xl font-semibold mb-2'>{item.title}</h4>
-            <p className='text-gray-700 text-base'>{item.description}</p>
+            <h4 className='text-2xl font-semibold font-["Geist"] mb-2'>{item.title}</h4>
+            <p className='text-gray-700 font-["Geis mono"] text-base'>{item.description}</p>
           </div>
         ))}
       </div>

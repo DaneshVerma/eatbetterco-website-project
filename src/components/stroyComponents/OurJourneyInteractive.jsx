@@ -29,7 +29,7 @@ const OurJourneyInteractive = () => {
 
   return (
     <section className='mb-24'>
-      <h4 className='text-3xl font-semibold mb-6 text-left'>Our Journey</h4>
+      <h4 className='text-3xl font-["Geist"]  font-semibold mb-6 text-left'>Our Journey</h4>
 
       <div className='flex flex-col-reverse md:h-[70vh] md:flex-row gap-6'>
         {/* Left Strips */}
@@ -55,13 +55,13 @@ const OurJourneyInteractive = () => {
                     hover: { y: -6 },
                   }}
                   transition={{ duration: 0.3 }}
-                  className='text-lg md:text-xl font-medium text-[#2f2f2f] md:mb-0 mb-2 text-center md:text-left'
+                  className='text-lg md:text-xl font-["Geist"]  font-medium text-[#2f2f2f] md:mb-0 mb-2 text-center md:text-left'
                 >
                   {item.title}
                 </motion.p>
 
                 {/* Description – Always visible on mobile, hover on desktop */}
-                <motion.p className='text-sm text-gray-700 text-left md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500'>
+                <motion.p className='text-sm font-["Geist mono"]  text-gray-700 text-left md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500'>
                   {item.desc}
                 </motion.p>
               </motion.div>

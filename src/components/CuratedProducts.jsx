@@ -22,7 +22,7 @@ const products = [
 const CuratedProducts = () => {
   return (
     <section className='px-6 py-10 bg-amber-200 sticky top-0 text-center'>
-      <h3 className='text-3xl font-serif mb-10'>Curated Products</h3>
+      <h3 className='text-3xl font-["Geist"] mb-10'>Curated Products</h3>
 
       <div className='flex flex-wrap justify-center gap-5'>
         {products.map((product, index) => {
@@ -38,13 +38,13 @@ const CuratedProducts = () => {
                   alt={product.name}
                 />
               </div>
-              <h4 className='text-lg font-semibold mb-1'>{product.name}</h4>
-              <p className='text-sm text-gray-700 mb-3'>
+              <h4 className='text-lg font-semibold font-["Geist"] mb-1'>{product.name}</h4>
+              <p className='text-sm font-["Geist mono"] text-gray-700 mb-3'>
                 For energy & vitality
               </p>
               <Link
                 to={"products"}
-                className='bg-[#d6e2c5] text-[#2f2f2f] px-4 py-2 rounded hover:bg-[#c6d2b3] transition'
+                className='bg-[#d6e2c5] font-medium font-["Geist"] text-[#2f2f2f] px-4 py-2 rounded hover:bg-[#c6d2b3] transition'
               >
                 Explore
               </Link>

@@ -11,7 +11,7 @@ const HeroSection = () => {
           delay={0.1}
           className='flex-1 text-center md:text-left'
         >
-          <h2 className='text-3xl font-extrabold md:text-6xl font-serif mb-4'>
+          <h2 className='text-3xl font-["Geist"] font-extrabold md:text-6xl mb-4'>
             Snacks rooted in Indian tradition, crafted for today.
           </h2>
           <Link

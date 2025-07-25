@@ -13,7 +13,7 @@ const Footer = () => {
       <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10'>
         {/* Newsletter CTA */}
         <div>
-          <h3 className='text-xl font-serif mb-4'>Subscribe to get special offers</h3>
+          <h3 className='text-xl  font-["Geist"]  mb-4'>Subscribe to get special offers</h3>
           <form className='flex flex-col sm:flex-row gap-3'>
             <input
               type='email'
@@ -22,7 +22,7 @@ const Footer = () => {
             />
             <button
               type='submit'
-              className='bg-[#d6e2c5] text-[#2f2f2f] px-5 py-2 rounded hover:bg-[#c6d2b3] transition'
+              className='bg-[#d6e2c5] font-["Geist mono"]  text-[#2f2f2f] px-5 py-2 rounded hover:bg-[#c6d2b3] transition'
             >
               Subscribe
             </button>
@@ -31,25 +31,25 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className='text-center md:text-left'>
-          <h4 className='text-lg font-serif mb-3'>Quick Links</h4>
+          <h4 className='text-lg font-["Geist"] mb-3'>Quick Links</h4>
           <ul className='space-y-2 text-sm'>
             <li>
-              <Link to='/' className='hover:underline'>
+              <Link to='/' className='font-["Geist mono"]  hover:underline'>
                 Home
               </Link>
             </li>
             <li>
-              <Link to='/products' className='hover:underline'>
+              <Link to='/products' className='font-["Geist mono"]  hover:underline'>
                 Products
               </Link>
             </li>
             <li>
-              <Link to='/ourstory' className='hover:underline'>
+              <Link to='/ourstory' className='font-["Geist mono"]  hover:underline'>
                 Our Story
               </Link>
             </li>
             <li>
-              <Link to='/login' className='hover:underline'>
+              <Link to='/login' className='font-["Geist mono"]  hover:underline'>
                 Login
               </Link>
             </li>
@@ -58,10 +58,10 @@ const Footer = () => {
 
         {/* Branding + Social Links */}
         <div className='text-center md:text-right'>
-          <h4 className='text-lg font-serif mb-3'>
+          <h4 className='text-lg font-["Geist"] mb-3'>
             EAT BETTER<span className='text-[#7a9e49]'>.co</span>
           </h4>
-          <p className='text-sm text-gray-600 mb-2'>
+          <p className='text-sm font-["Geist mono"] text-gray-600 mb-2'>
             Handcrafted Indian snacks with a modern twist.
           </p>
 
@@ -95,7 +95,7 @@ const Footer = () => {
       </div>
 
       {/* Footer bottom */}
-      <div className='mt-10 text-center text-xs text-gray-500'>
+      <div className='mt-10 text-center text-xs font-["Geist"]  text-gray-500'>
         &copy; {new Date().getFullYear()} Eat Better Co. All rights reserved.
       </div>
     </footer>
