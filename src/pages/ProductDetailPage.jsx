@@ -36,7 +36,7 @@ const ProductDetailPage = () => {
 
   return (
     <AnimatedSection>
-      <div className='px-4 py-16 pt-28 bg-[#fff9f0] max-w-6xl mx-auto'>
+      <div className='px-4 py-16 pt-28 bg-[#fff9f0] flex flex-col items-center'>
         {/* Back button */}
         <button
           onClick={() => navigate(-1)}
