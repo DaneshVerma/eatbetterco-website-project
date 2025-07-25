@@ -1,12 +1,40 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## > Project built as part of **Sheriyans coding school's Live Cohort Frontend Based Hackthon** ✨
 
-Currently, two official plugins are available:
+# Eat Better Co - Snack Store (React + Tailwind)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a snack store frontend built using **React**, **Tailwind CSS**, and **Framer Motion**, inspired by the real brand *Eat Better Co*.
 
-## Expanding the ESLint configuration
+## Folder Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- /pages – All route pages (Home, Products, Cart, etc.)
+- /components – Navbar, Footer, ProductCard, etc.
+- /context – Cart Context
+- /data – Static product data
+- /assets – Icons & images
+
+## Features
+
+- Product listing with sorting, filtering & search
+- Product detail pages with add to cart
+- Cart page with quantity update and remove
+- LocalStorage-based cart persistence
+- Toast notifications on cart actions
+- Responsive design with subtle animations
+
+## Tech Stack
+
+- React
+- Tailwind CSS
+- Framer Motion
+- React Router
+- React Toastify
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+
+```
+
