@@ -2,7 +2,6 @@ import HeroSection from "../components/HeroSection";
 import WhyEatBetter from "../components/WhyEatBetter";
 import Testimonial from "../components/Testimonial";
 import CuratedProducts from "../components/CuratedProducts";
-import { motion } from "framer-motion";
 import AnimatedSection from "../components/animation/AnimatedSection";
 import { useLocation } from "react-router-dom";
 
