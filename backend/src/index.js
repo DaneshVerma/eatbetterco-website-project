@@ -1,17 +1,21 @@
 const express = require("express");
-const { PORT } = require("./config/environments");
-const connectDB = require("./config/db");
+const router = require("./routes");
+const cookieParser = require("cookie-parser");
+const errorHandler = require("./middlewares/erorrHandlerMiddleware");
 
+//initialize middleware
+const cors = require("cors");
 const app = express();
 
-function startServer() {
-  try {
-    connectDB();
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-startServer();
+//middleware
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
+
+//routes
+app.use("/api", router);
+
+//error handler
+app.use(errorHandler);
+
+module.exports = app;
