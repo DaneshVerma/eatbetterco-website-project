@@ -5,7 +5,8 @@ import HomePage from "../pages/HomePage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProductsPage from "../pages/ProductsPage";
 import { Route, Routes } from "react-router-dom";
-
+import ProtectedRoute from "../components/ProtectedRoute";
+import Profile from "../pages/Profile";
 
 const RouteComponent = () => {
   return (
@@ -16,6 +17,14 @@ const RouteComponent = () => {
       <Route path='/product/:id' element={<ProductDetailPage />} />
       <Route path='login' element={<AuthPage />} />
       <Route path='/cart' element={<CartPage />} />
+      <Route
+        path='/profile'
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };

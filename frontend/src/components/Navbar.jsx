@@ -1,5 +1,4 @@
-// components/Navbar.jsx
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { isLoggedIn, logout, getUser } from "../utils/auth";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +7,9 @@ import { RiShoppingCartLine, RiMenu3Line } from "@remixicon/react";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const user = getUser();
+  const location = useLocation();
+  const [authed, setAuthed] = useState(!!isLoggedIn());
+  const [user, setUser] = useState(getUser());
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { cart } = useCart();
@@ -32,6 +33,12 @@ const Navbar = () => {
     return () => (document.body.style.overflow = "auto");
   }, [menuOpen]);
 
+  // Re-evaluate auth state on route changes
+  useEffect(() => {
+    setAuthed(!!isLoggedIn());
+    setUser(getUser());
+  }, [location]);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -45,7 +52,10 @@ const Navbar = () => {
     >
       <div className='max-w-7xl mx-auto flex items-center justify-between px-6 py-4'>
         {/* Logo */}
-        <Link to='/' className='text-2xl md:text-3xl font-serif font-bold text-[#2f2f2f]'>
+        <Link
+          to='/'
+          className='text-2xl md:text-3xl font-serif font-bold text-[#2f2f2f]'
+        >
           <img
             className='w-1/4 scale-115 object-cover h-full'
             src='https://eatbetterco.com/cdn/shop/files/EB-LOGO-02.svg?v=1740123835&width=160'
@@ -59,6 +69,7 @@ const Navbar = () => {
             { label: "Home", to: "/" },
             { label: "Our Story", to: "/ourstory" },
             { label: "Products", to: "/products" },
+            ...(authed ? [{ label: "Profile", to: "/profile" }] : []),
           ].map((link) => (
             <Link
               key={link.to}
@@ -80,7 +91,7 @@ const Navbar = () => {
             )}
           </Link>
 
-          {isLoggedIn() ? (
+          {authed ? (
             <>
               <span className='text-sm text-gray-800 font-medium'>
                 Hi, {user?.name || "User"}
@@ -88,6 +99,8 @@ const Navbar = () => {
               <button
                 onClick={() => {
                   logout();
+                  setAuthed(false);
+                  setUser(null);
                   navigate("/");
                 }}
                 className='text-red-600 cursor-pointer font-bold hover:underline'
@@ -165,9 +178,22 @@ const Navbar = () => {
                 >
                   Products
                 </Link>
+                {authed && (
+                  <Link
+                    to='/profile'
+                    onClick={closeMenu}
+                    className='hover:text-[#7a9e49] border-b border-[#dabf82]/40 pb-2'
+                  >
+                    Profile
+                  </Link>
+                )}
 
                 {/* Cart with badge */}
-                <Link to='/cart' onClick={closeMenu} className='relative border-b border-[#dabf82]/40 pb-2'>
+                <Link
+                  to='/cart'
+                  onClick={closeMenu}
+                  className='relative border-b border-[#dabf82]/40 pb-2'
+                >
                   <RiShoppingCartLine className='w-5 h-5 inline-block mr-1' />
                   Cart
                   {cartCount > 0 && (
@@ -177,10 +203,12 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                {isLoggedIn() ? (
+                {authed ? (
                   <button
                     onClick={() => {
                       logout();
+                      setAuthed(false);
+                      setUser(null);
                       navigate("/");
                       closeMenu();
                     }}

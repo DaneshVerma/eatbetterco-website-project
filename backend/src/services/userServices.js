@@ -23,7 +23,7 @@ class userServices {
   }
   loginValidation(userData) {
     const LoginSchema = z.object({
-      email: z.email(),
+      email: z.string().email(),
       password: z.string().min(5),
     });
     try {
@@ -109,7 +109,6 @@ class userServices {
       throw new AppError("User not found", 404);
     }
     return user;
-
   }
   async updateUser(id, userData) {
     const validation = this.updateValidation(userData);
