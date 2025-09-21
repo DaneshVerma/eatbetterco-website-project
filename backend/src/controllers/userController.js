@@ -34,5 +34,17 @@ class userController {
       next(error);
     }
   }
+  async getMe(req, res, next) {
+    try {
+      const user = await userServices.getUserProfileById(req.user.id);
+      res.status(200).json({
+        success: true,
+        message: "User fetched successfully",
+        user,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 module.exports = new userController();

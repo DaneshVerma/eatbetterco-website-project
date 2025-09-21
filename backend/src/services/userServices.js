@@ -103,8 +103,13 @@ class userServices {
       token,
     };
   }
-  async findUserById(id) {
-    return await this.userRepository.findUserById(id);
+  async getUserProfileById(id) {
+    const user = await this.userRepository.findUserById(id);
+    if (!user) {
+      throw new AppError("User not found", 404);
+    }
+    return user;
+
   }
   async updateUser(id, userData) {
     const validation = this.updateValidation(userData);
