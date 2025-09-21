@@ -16,14 +16,14 @@ export async function signup({ email, password, name, role = "User" }) {
     name,
     role,
   });
-  saveSession({ token: data.user.token, user: data.user });
+  saveSession({ token: data.token, user: data.user });
   return data;
 }
 
 export async function login({ email, password }) {
   const { data } = await api.post("/user/login", { email, password });
   console.log(data);
-  saveSession({ token: data.user.token, user: data.user });
+  saveSession({ token: data.token, user: data.user });
   return data;
 }
 
@@ -39,7 +39,7 @@ export function logout() {
 }
 
 export function isLoggedIn() {
-  return localStorage.getItem("user");
+  return !!localStorage.getItem("token");
 }
 
 export function getToken() {
