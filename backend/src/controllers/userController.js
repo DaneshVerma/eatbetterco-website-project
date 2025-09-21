@@ -1,5 +1,4 @@
 const userServices = require("../services/userServices");
-const { AppError } = require("../utils/errors");
 
 class userController {
   async register(req, res, next) {

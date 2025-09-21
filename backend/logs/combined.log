@@ -71,3 +71,7 @@
 {"level":"info","message":"Server is running on port 3000","timestamp":"2025-09-21T11:34:20.706Z"}
 {"level":"info","message":"MongoDB connected","timestamp":"2025-09-21T11:34:26.199Z"}
 {"level":"info","message":"Server is running on port 3000","timestamp":"2025-09-21T11:34:26.211Z"}
+{"level":"info","message":"MongoDB connected","timestamp":"2025-09-21T11:34:38.209Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2025-09-21T11:34:38.221Z"}
+{"error":"Error: User already exists\n    at userServices.createUser (D:\\Cohort\\Eat better Co\\backend\\src\\services\\userServices.js:58:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async register (D:\\Cohort\\Eat better Co\\backend\\src\\controllers\\userController.js:8:20)","level":"error","message":"409 - User already exists","timestamp":"2025-09-21T11:35:57.274Z"}
+{"level":"info","message":"MongoDB connected","timestamp":"2025-09-21T11:36:58.125Z"}
