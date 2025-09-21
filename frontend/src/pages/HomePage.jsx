@@ -3,14 +3,11 @@ import WhyEatBetter from "../components/WhyEatBetter";
 import Testimonial from "../components/Testimonial";
 import CuratedProducts from "../components/CuratedProducts";
 import AnimatedSection from "../components/animation/AnimatedSection";
-import { useLocation } from "react-router-dom";
-
 
 const HomePage = () => {
-  const location = useLocation();
   return (
     <div className='relative'>
-      <AnimatedSection key={location.pathname}>
+      <AnimatedSection inView={false} className='min-h-screen'>
         <HeroSection />
         <WhyEatBetter />
         <Testimonial />

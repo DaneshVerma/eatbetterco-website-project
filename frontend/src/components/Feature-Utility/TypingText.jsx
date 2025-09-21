@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-const TypingText = ({ text = "", speed = 45, className = "" }) => {
+const TypingText = ({ text = "", speed = 45, className = "", as = "span" }) => {
   const [displayedText, setDisplayedText] = useState("");
   const index = useRef(0);
   const ref = useRef(null);
@@ -27,12 +27,13 @@ const TypingText = ({ text = "", speed = 45, className = "" }) => {
     }, speed);
 
     return () => clearInterval(interval);
-  }, [visible]);
+  }, [visible, text, speed]);
 
+  const Component = as;
   return (
-    <p ref={ref} className={className}>
+    <Component ref={ref} className={className}>
       {displayedText}
-    </p>
+    </Component>
   );
 };
 

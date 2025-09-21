@@ -42,8 +42,7 @@ const OurStoryPage = () => {
         <motion.div
           className='md:order-1'
           initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.3 }}
+          animate='visible'
           variants={fadeInUpVariant}
         >
           <h3 className='text-4xl font-["Geist"]  mb-4 text-[#2f2f2f]'>
@@ -71,8 +70,7 @@ const OurStoryPage = () => {
         <motion.h3
           className='text-xl md:text-4xl font-["Geist"] mb-3'
           initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.3 }}
+          animate='visible'
           variants={fadeInUpVariant}
         >
           Our Mission
@@ -80,11 +78,11 @@ const OurStoryPage = () => {
         <motion.p
           className='max-w-2xl mx-auto font-["Geist mono"] text-lg text-gray-700'
           initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true, amount: 0.3 }}
+          animate='visible'
           variants={fadeInUpVariant}
         >
           <TypingText
+            as='span'
             text=' To revive age-old Indian food wisdom and make snacking better.
           Healthier. And more honest. No preservatives. No fads. Just
           beautifully handcrafted, Indian superfood-based snacks.'
