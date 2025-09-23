@@ -13,19 +13,20 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
-// configure CORS to allow your frontend and Authorization header
+// configure CORS to allow your frontend and credentials
 app.use(
   cors({
     origin: FRONTEND_URL ? [FRONTEND_URL] : true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Allow cookies to be sent
   })
 );
 
 //routes
 app.use("/api", router);
 
-app.get("*name", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 //error handler
