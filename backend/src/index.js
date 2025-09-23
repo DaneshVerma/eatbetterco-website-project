@@ -4,11 +4,13 @@ const cookieParser = require("cookie-parser");
 const errorHandler = require("./middlewares/erorrHandlerMiddleware");
 const cors = require("cors");
 const { FRONTEND_URL } = require("./config/environments");
+const path = require("path");
 
 //initialize middleware
 const app = express();
 
 //middleware
+app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 // configure CORS to allow your frontend and Authorization header
@@ -23,6 +25,9 @@ app.use(
 //routes
 app.use("/api", router);
 
+app.get("*name", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+});
 //error handler
 app.use(errorHandler);
 
