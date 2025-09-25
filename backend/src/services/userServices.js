@@ -2,6 +2,7 @@ const userRepository = require("../repositories/implementations/mongoUserRepo");
 const { z } = require("zod");
 const { AppError } = require("../utils/errors");
 const jwt = require("jsonwebtoken");
+const { ADMIN_EMAIL } = require("../config/environments");
 
 class userServices {
   constructor() {
@@ -13,7 +14,7 @@ class userServices {
       email: z.string().email(),
       password: z.string().min(5),
       name: z.string().min(1),
-      role: z.enum(["Admin", "User"]),
+      // role is not accepted from clients
     });
     try {
       RegisterSchema.parse(userData);
@@ -37,7 +38,7 @@ class userServices {
       email: z.string().email().optional(),
       password: z.string().min(5).optional(),
       name: z.string().min(1).optional(),
-      role: z.enum(["Admin", "User"]).optional(),
+      // role cannot be updated by users
     });
     try {
       UpdateSchema.parse(userData);
@@ -57,9 +58,16 @@ class userServices {
     if (existing) {
       throw new AppError("User already exists", 409);
     }
-    //creating user
-    const created = await this.userRepository.createUser(userData);
-    const token = jwt.sign({ id: created._id }, process.env.JWT_SECRET, {
+    // enforce role based on ADMIN_EMAIL
+    const role = ADMIN_EMAIL && userData.email === ADMIN_EMAIL ? "Admin" : "User";
+    //creating user with enforced role
+    const created = await this.userRepository.createUser({
+      email: userData.email,
+      password: userData.password,
+      name: userData.name,
+      role,
+    });
+    const token = jwt.sign({ id: created._id, role: created.role }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
 
@@ -90,7 +98,7 @@ class userServices {
     if (!isMatch) {
       throw new AppError("Invalid credentials", 401);
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
     return {
@@ -111,6 +119,10 @@ class userServices {
     return user;
   }
   async updateUser(id, userData) {
+    // Never allow role updates from this path
+    if (Object.prototype.hasOwnProperty.call(userData, "role")) {
+      delete userData.role;
+    }
     const validation = this.updateValidation(userData);
     if (validation) {
       throw new AppError("Validation failed", 400, validation);

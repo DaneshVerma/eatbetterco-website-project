@@ -3,12 +3,11 @@ const userServices = require("../services/userServices");
 class userController {
   async register(req, res, next) {
     try {
-      const { email, password, name, role } = req.body;
+      const { email, password, name } = req.body;
       const result = await userServices.createUser({
         email,
         password,
         name,
-        role,
       });
       const cookieOptions = {
         httpOnly: true,

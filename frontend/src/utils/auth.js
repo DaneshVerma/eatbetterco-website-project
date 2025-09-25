@@ -9,12 +9,11 @@ function saveSession({ token, user }) {
   );
 }
 
-export async function signup({ email, password, name, role = "User" }) {
+export async function signup({ email, password, name }) {
   const { data } = await api.post("/user/register", {
     email,
     password,
     name,
-    role,
   });
   saveSession({ token: data.token, user: data.user });
   return data;

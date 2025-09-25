@@ -9,7 +9,6 @@ const AuthPage = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState(""); // only used in signup
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("User");
   const [isSignup, setIsSignup] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +30,8 @@ const AuthPage = () => {
           toast.error("Name is required for signup");
           return;
         }
-        await signupApi({ email, password, name, role });
+        // role is always enforced to "User" by backend; do not allow client selection
+        await signupApi({ email, password, name });
         toast.success("Signup successful!");
         navigate("/");
       } else {
@@ -60,17 +60,6 @@ const AuthPage = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <div className='mb-3'>
-            <label className='block text-sm font-medium mb-1'>Role</label>
-            <select
-              className='w-full p-2 border rounded'
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value='User'>User</option>
-              <option value='Admin'>Admin</option>
-            </select>
-          </div>
         </>
       )}
       <input
